@@ -1,5 +1,7 @@
 import { useState } from "react"
+import { initialMessages } from "./assets/initialMessages"
 import Header from "./components/Header/Header"
+import Main from "./components/Main/Main"
 import { AppContainer } from "./GlobalStyle"
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
         "Astrodev"
     ])
 
+    const [messages, setMessages] = useState(initialMessages)
+
     // mudar o remetente atual
     const onChangeSender = (e) => {
         setCurrSender(e.target.value)
@@ -28,7 +32,9 @@ function App() {
                 onChangeSender={onChangeSender}
             />
 
-            <h1>{currSender}</h1>
+            <Main messages={messages} />
+
+            {/* Footer */}
         </AppContainer>
     )
 }

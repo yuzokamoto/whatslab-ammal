@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
 export const AppContainer = styled.div`
     width: 600px;
     height: 100vh;
+
+    display: flex;
+    flex-direction: column;
     /* margin: 0 auto; */
 `
 
