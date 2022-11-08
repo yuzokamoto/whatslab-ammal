@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Header from "./components/Header/Header"
+import { AppContainer } from "./GlobalStyle"
 
 function App() {
     // remetente atual
@@ -20,7 +21,7 @@ function App() {
     }
 
     return (
-        <div>
+        <AppContainer>
             <Header
                 senders={senders}
                 currSender={currSender}
@@ -28,7 +29,7 @@ function App() {
             />
 
             <h1>{currSender}</h1>
-        </div>
+        </AppContainer>
     )
 }
 

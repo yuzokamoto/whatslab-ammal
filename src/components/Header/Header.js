@@ -1,28 +1,28 @@
 import videoCam from "../../assets/video-cam.svg"
 import phoneCall from "../../assets/phone-call.svg"
 import moreOptions from "../../assets/more-options.svg"
-import { HeaderContainer } from "./Header.styled"
+import { HeaderContainer, Select, Status } from "./Header.styled"
 
 function Header(props) {
     const { senders, currSender, onChangeSender } = props
     
     return (
         <HeaderContainer>
-            <div>
-                <img src="https://picsum.photos/200/200" alt="Profile photo" />
+            <div className="sender-profile">
+                <img src={`https://picsum.photos/seed/${currSender}/200/200`} alt="Profile photo" />
                 <div>
-                    <select value={currSender} onChange={onChangeSender} >
+                    <Select value={currSender} onChange={onChangeSender} >
                         {senders.map((sender) => (
                             <option key={sender} value={sender}>
                                 {sender}
                             </option>
                         ))}
-                    </select>
-                    <p>Online</p>
+                    </Select>
+                    <Status>Online</Status>
                 </div>
             </div>
 
-            <div>
+            <div className="action-menu">
                 <button>
                     <img src={videoCam} alt="Video cam icon" />
                 </button>
