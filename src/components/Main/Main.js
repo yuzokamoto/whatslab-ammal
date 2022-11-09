@@ -3,13 +3,16 @@ import TickDoubleBlue from "../../assets/tick-double-blue.svg"
 import TickDoubleWhite from "../../assets/tick-double-white.svg"
 
 function Main(props) {
-    const { messages } = props
+    const { messages, deleteMessage } = props
 
     return (
         <MainContainer>
             {messages.map((message) => (
                 <div>
-                    <ChatBalloon sender={message.sender}>
+                    <ChatBalloon
+                        sender={message.sender}
+                        onDoubleClick={() => deleteMessage(message.id)}
+                    >
                         {message.sender !== "Me" && <h1>{message.sender}</h1>}
                         <p>{message.content}</p>
                         <div>
