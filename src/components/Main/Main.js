@@ -8,7 +8,7 @@ function Main(props) {
     return (
         <MainContainer>
             {messages.map((message) => (
-                <div>
+                <div key={message.id}>
                     <ChatBalloon
                         sender={message.sender}
                         onDoubleClick={() => deleteMessage(message.id)}
