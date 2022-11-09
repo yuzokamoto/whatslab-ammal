@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { initialMessages } from "./assets/initialMessages"
+import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import Main from "./components/Main/Main"
 import { AppContainer } from "./GlobalStyle"
@@ -50,6 +51,50 @@ function App() {
         }
     }
 
+    // enviar mensagem com cb
+    // const sendMessage = (e, text, cbClearText) => {
+    //     if (e.key === "Enter") {
+    //         const newMessage = {
+    //             id: `${currSender}-${Math.ceil(Math.random() * 100000)}`,
+    //             sender: currSender,
+    //             content: text,
+    //             createdAt: new Date()
+    //                 .toLocaleTimeString(
+    //                     "en-US",
+    //                     {
+    //                         hour: "numeric",
+    //                         minute: "numeric",
+    //                         hour12: true
+    //                     }
+    //                 ) // cria uma data no tempo atual
+    //         }
+
+    //         const newMessages = [...messages, newMessage]
+    //         setMessages(newMessages)
+    //         cbClearText()
+    //     }
+    // }
+
+    const sendMessage = (text) => {
+        const newMessage = {
+            id: `${currSender}-${Math.ceil(Math.random() * 100000)}`,
+            sender: currSender,
+            content: text,
+            createdAt: new Date()
+                .toLocaleTimeString(
+                    "en-US",
+                    {
+                        hour: "numeric",
+                        minute: "numeric",
+                        hour12: true
+                    }
+                ) // cria uma data no tempo atual
+        }
+
+        const newMessages = [...messages, newMessage]
+        setMessages(newMessages)
+    }
+
     return (
         <AppContainer>
             <Header
@@ -60,7 +105,7 @@ function App() {
 
             <Main messages={messages} deleteMessage={deleteMessage} />
 
-            {/* Footer */}
+            <Footer sendMessage={sendMessage} />
         </AppContainer>
     )
 }
