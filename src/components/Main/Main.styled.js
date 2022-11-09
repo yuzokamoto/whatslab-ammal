@@ -4,19 +4,24 @@ export const MainContainer = styled.div`
     background-color: #F1F4F7;
     flex-grow: 1;
     padding: 16px;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 export const ChatBalloon = styled.div`
-    min-width: 80px;
+    min-width: 85px;
     max-width: 310px;
+
     border-radius: 10px;
     padding: 8px;
-    margin-bottom: 16px;
 
-    margin-left: ${(props) =>
+    margin: ${(props) =>
         props.sender === "Me"
-            ? "auto"
-            : 0
+            ? "0 0 16px auto"
+            : "0 auto 16px 0"
     };
 
     color: ${(props) => props.sender === "Me" ? "white" : "black"};
@@ -25,11 +30,12 @@ export const ChatBalloon = styled.div`
 
     h1 {
         font-size: 16px;
+        font-weight: 500;
     }
 
     p {
         font-weight: 400;
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 4px;
         overflow-wrap: break-word;
     }
